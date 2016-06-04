@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CLR/H #100 Demo 2</title>
+	<meta charset="utf-8" />
+    <link href="content/site.css" rel="stylesheet" />
+</head>
+<body ng-app="mainApp" ng-controller="mainController as ctrl">
+
+    <p id="toggle-button" ng-click="ctrl.onClickToggleButton()" ng-cloak>
+        {{ctrl.shutterOpened ? 'OFF' : 'ON' }}
+    </p>
+
+    <div id="shutter" ng-class="{opened:ctrl.shutterOpened}">
+    </div>
+
+    <script src="Scripts/jquery-2.2.3.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/mainController.js"></script>
+</body>
+</html>

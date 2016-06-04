@@ -35,6 +35,10 @@ body {
     font-size: 40px;
     border-radius: 80px;
     border: solid 8px #888;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 #shutter {

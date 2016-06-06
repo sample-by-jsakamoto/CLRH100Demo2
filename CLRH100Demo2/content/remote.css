@@ -1,0 +1,42 @@
+﻿h1 {
+    font-family: Impact,'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 32px;
+    font-weight: normal;
+    margin: 0;
+    padding: 8px 8px;
+    text-align: center;
+    background-color: teal;
+    color: #fff;
+}
+
+#toggle-button {
+    bottom: 0;
+    -moz-transition: opacity linear 0.1s;
+    -o-transition: opacity linear 0.1s;
+    -webkit-transition: opacity linear 0.1s;
+    transition: opacity linear 0.1s;
+}
+
+.disable-remotecontrol #toggle-button {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+    color: #888;
+}
+
+#message-1 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+    background-color: #444;
+    color: #ccc;
+    padding: 4px 8px;
+    text-align: center;
+    opacity:0;
+    -moz-transition: opacity linear 0.1s;
+    -o-transition: opacity linear 0.1s;
+    -webkit-transition: opacity linear 0.1s;
+    transition: opacity linear 0.1s;
+}
+.disable-remotecontrol #message-1 {
+    opacity: 1.0;
+}

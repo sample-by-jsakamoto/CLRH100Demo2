@@ -1,25 +1,28 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>CLR/H #100 Demo 2</title>
+    <title>CLR/H #100 Demo 2 - REMOTE CONTROOLLER</title>
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <link href="content/site.css" rel="stylesheet" />
+    <link href="content/remote.css" rel="stylesheet" />
 </head>
-<body ng-app="mainApp" ng-controller="mainController as ctrl">
+<body ng-app="CLRH100Demo2" ng-controller="remoteController as ctrl" ng-class='{"disable-remotecontrol":!ctrl.state.enableRemoteControl}'>
+
+    <h1>#clrh100 Demo2 Remote Controller</h1>
+
+    <div id="message-1">Remote control is disable by host.</div>
 
     <p id="toggle-button" ng-click="ctrl.onClickToggleButton()" ng-cloak>
-        {{ctrl.shutterOpened ? 'OFF' : 'ON' }}
+        {{ctrl.state.shutterOpened ? 'OFF' : 'ON' }}
     </p>
-
-    <div id="shutter" ng-class="{opened:ctrl.shutterOpened}">
-    </div>
 
     <script src="Scripts/jquery-2.2.3.min.js"></script>
     <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
     <script src="Scripts/angular.min.js"></script>
+    <script src="services/mainHubService.js"></script>
     <script src="app.js"></script>
-    <script src="controllers/mainController.js"></script>
+    <script src="controllers/remoteController.js"></script>
 </body>
 </html>

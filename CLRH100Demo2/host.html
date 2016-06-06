@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CLR/H #100 Demo 2</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="utf-8" />
+    <link href="content/site.css" rel="stylesheet" />
+    <link href="content/host.css" rel="stylesheet" />
+</head>
+<body ng-app="CLRH100Demo2" ng-controller="hostController as ctrl" ng-cloak>
+
+    <div id="control-panel">
+        <label ng-class="{enable: ctrl.state.enableRemoteControl}">
+            <input type="checkbox" ng-model="ctrl.state.enableRemoteControl" />
+            <span class="caption">Enable remote control</span>
+            <span class="toggle-button"></span>
+        </label>
+    </div>
+
+    <p id="toggle-button" ng-click="ctrl.onClickToggleButton()">
+        {{ctrl.state.shutterOpened ? 'OFF' : 'ON' }}
+    </p>
+
+    <div id="shutter" ng-class="{opened:ctrl.state.shutterOpened}">
+    </div>
+
+    <script src="Scripts/jquery-2.2.3.min.js"></script>
+    <script src="Scripts/jquery.signalR-2.2.0.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="services/mainHubService.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/hostController.js"></script>
+</body>
+</html>

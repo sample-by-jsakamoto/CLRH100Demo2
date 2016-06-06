@@ -17,26 +17,48 @@
     transition: opacity linear 0.1s;
 }
 
-.disable-remotecontrol #toggle-button {
+.disable-remotecontrol #toggle-button,
+.connection-losted #toggle-button {
     opacity: 0.5;
     cursor: default;
     pointer-events: none;
     color: #888;
 }
 
-#message-1 {
+#messages-holder {
+    position: relative;
+}
+
+.message {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 16px;
-    background-color: #444;
-    color: #ccc;
     padding: 4px 8px;
     text-align: center;
-    opacity:0;
     -moz-transition: opacity linear 0.1s;
     -o-transition: opacity linear 0.1s;
     -webkit-transition: opacity linear 0.1s;
     transition: opacity linear 0.1s;
+    position: absolute;
+    left: 0;
+    right: 0;
 }
+
+#message-1 {
+    background-color: #444;
+    color: #ccc;
+    opacity: 0;
+}
+
 .disable-remotecontrol #message-1 {
+    opacity: 1.0;
+}
+
+#message-2 {
+    background-color: #ff6500;
+    color: #ffd800;
+    opacity: 0;
+}
+
+.connection-losted #message-2 {
     opacity: 1.0;
 }

@@ -29,6 +29,9 @@
             conn.stateChanged(args => {
                 $rootScope.$apply(() => this.connectionState = args.newState);
 
+                if (args.newState == SignalRConnState.Connected) {
+                    $rootScope.$emit('connectedToHub');
+                }
                 if (args.newState == SignalRConnState.Disconnected) {
                     if (timerState.id == null) {
                         timerState.id = setInterval(() => conn.start(), 5000);

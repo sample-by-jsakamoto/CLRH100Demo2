@@ -14,6 +14,9 @@ var CLRH100Demo2;
             var timerState = { id: null };
             conn.stateChanged(function (args) {
                 $rootScope.$apply(function () { return _this.connectionState = args.newState; });
+                if (args.newState == 1 /* Connected */) {
+                    $rootScope.$emit('connectedToHub');
+                }
                 if (args.newState == 4 /* Disconnected */) {
                     if (timerState.id == null) {
                         timerState.id = setInterval(function () { return conn.start(); }, 5000);

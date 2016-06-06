@@ -162,6 +162,12 @@
       <DependentUpon>remoteController.ts</DependentUpon>
     </Content>
     <Content Include="host.html" />
+    <Content Include="models\hostState.js">
+      <DependentUpon>hostState.ts</DependentUpon>
+    </Content>
+    <Content Include="models\hostState.js.map">
+      <DependentUpon>hostState.ts</DependentUpon>
+    </Content>
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>

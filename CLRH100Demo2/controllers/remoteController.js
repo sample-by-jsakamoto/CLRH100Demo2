@@ -7,17 +7,23 @@ var CLRH100Demo2;
             this.mainHub = mainHub;
             this.state = {
                 shutterOpened: false,
-                enableRemoteControl: false
+                enableRemoteControl: true
             };
             $rootScope.$on('updateHostState', function (event, newState) { return _this.onUpdateHostState(newState); });
+            $rootScope.$on('connectedToHub', function () { return mainHub.requestCurrentState(); });
             // 初期状態要求をホストに通知
-            if (mainHub.connectionState != 1 /* Connected */) {
-                $rootScope.$on('connectedToHub', function () { return mainHub.requestCurrentState(); });
-            }
-            else {
+            if (mainHub.connectionState == 1 /* Connected */) {
                 mainHub.requestCurrentState();
             }
         }
+        Object.defineProperty(RemoteController.prototype, "connected", {
+            get: function () {
+                return this.mainHub.connectionState == 0 /* Connecting */ ||
+                    this.mainHub.connectionState == 1 /* Connected */;
+            },
+            enumerable: true,
+            configurable: true
+        });
         RemoteController.prototype.onClickToggleButton = function () {
             this.mainHub.requestToggleState();
         };

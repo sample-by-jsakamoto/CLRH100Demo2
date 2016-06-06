@@ -8,13 +8,19 @@
     <link href="content/site.css" rel="stylesheet" />
     <link href="content/remote.css" rel="stylesheet" />
 </head>
-<body ng-app="CLRH100Demo2" ng-controller="remoteController as ctrl" ng-class='{"disable-remotecontrol":!ctrl.state.enableRemoteControl}'>
+<body ng-app="CLRH100Demo2"
+      ng-cloak
+      ng-controller="remoteController as ctrl"
+      ng-class='{"disable-remotecontrol":!ctrl.state.enableRemoteControl, "connection-losted":!ctrl.connected}'>
 
     <h1>#clrh100 Demo2 Remote Controller</h1>
 
-    <div id="message-1">Remote control is disable by host.</div>
+    <div id="messages-holder">
+        <div id="message-1" class="message">Remote control is disable by host.</div>
+        <div id="message-2" class="message">lost connection to server...</div>
+    </div>
 
-    <p id="toggle-button" ng-click="ctrl.onClickToggleButton()" ng-cloak>
+    <p id="toggle-button" ng-click="ctrl.onClickToggleButton()">
         {{ctrl.state.shutterOpened ? 'OFF' : 'ON' }}
     </p>
 
